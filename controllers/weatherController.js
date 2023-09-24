@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 exports.getData = async (req, res) => {
   try {
     const today = new Date();
@@ -8,11 +10,11 @@ exports.getData = async (req, res) => {
 
     const location = req.params.location;
 
-    const apiResponse = await fetch(
+    const apiResponse = await axios.get(
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/${dateString}?key=${process.env.WEATHER_API}`
     );
 
-    const data = await apiResponse.json();
+    const data = await apiResponse.data;
     res.status(200).json({
       status: 'success',
       data,
