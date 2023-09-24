@@ -5,7 +5,6 @@ exports.getData = async (req, res) => {
     const month = today.getMonth();
     const day = today.getDate();
     const dateString = `${year}-${month + 1}-${day}`;
-    console.log(dateString);
 
     const location = req.params.location;
 
