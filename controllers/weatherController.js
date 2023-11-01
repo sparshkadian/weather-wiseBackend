@@ -28,8 +28,4 @@ exports.getData = async (req, res) => {
   }
 };
 
-// A quick fix to avoid server spin down
-setInterval(async () => {
-  const res = await axios.post('https://weather-wise.onrender.com/delhi');
-  const data = await res.data;
-}, 840000);
+
